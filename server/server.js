@@ -33,6 +33,10 @@ app.use('/api/enroll', enrollRouter)
 app.use('/api/contact', contactRouter)
 app.use('/api/admin', adminRouter)
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' })
+})
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')))
 
