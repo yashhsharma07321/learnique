@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { variants } from '../animations/variants'
 import { useAuth } from '../context/AuthContext'
 import {
-  users, book, mail, logOut, 
-  plus, edit, trash, calendar, dollarSign
+  Users, Book, Mail, LogOut, 
+  Plus, Edit, Trash, Calendar, DollarSign
 } from 'lucide-react'
 import Loader from '../components/Loader'
 import axios from '../api/axiosInstance'
@@ -87,10 +87,10 @@ const AdminDashboard = () => {
             
             <nav className="space-y-2">
               {[
-                { id: 'dashboard', label: 'Dashboard', icon: book },
-                { id: 'classes', label: 'Classes', icon: book },
-                { id: 'teachers', label: 'Teachers', icon: users },
-                { id: 'enrollments', label: 'Enrollments', icon: mail },
+                { id: 'dashboard', label: 'Dashboard', icon: Book },
+                { id: 'classes', label: 'Classes', icon: Book },
+                { id: 'teachers', label: 'Teachers', icon: Users },
+                { id: 'enrollments', label: 'Enrollments', icon: Mail },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -113,7 +113,7 @@ const AdminDashboard = () => {
               onClick={handleLogout}
               className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/20 transition-all duration-200"
             >
-              <logOut size={20} />
+              <LogOut size={20} />
               <span className="font-medium">Logout</span>
             </button>
           </div>
@@ -139,7 +139,7 @@ const AdminDashboard = () => {
               <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-gray-400 font-medium">Total Classes</h3>
-                  <book className="text-primary-400" size={24} />
+                  <Book className="text-primary-400" size={24} />
                 </div>
                 <div className="text-4xl font-bold text-white">{classes.length}</div>
               </div>
@@ -147,7 +147,7 @@ const AdminDashboard = () => {
               <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-gray-400 font-medium">Total Teachers</h3>
-                  <users className="text-secondary-400" size={24} />
+                  <Users className="text-secondary-400" size={24} />
                 </div>
                 <div className="text-4xl font-bold text-white">{teachers.length}</div>
               </div>
@@ -155,7 +155,7 @@ const AdminDashboard = () => {
               <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-gray-400 font-medium">Total Enrollments</h3>
-                  <mail className="text-green-400" size={24} />
+                  <Mail className="text-green-400" size={24} />
                 </div>
                 <div className="text-4xl font-bold text-white">{enrollments.length}</div>
               </div>
@@ -172,7 +172,7 @@ const AdminDashboard = () => {
                 onClick={() => setShowAddClass(true)}
                 className="mb-6 px-6 py-3 bg-primary-600 rounded-xl text-white font-semibold hover:bg-primary-500 transition-all duration-200 flex items-center gap-2"
               >
-                <plus size={20} />
+                <Plus size={20} />
                 Add Class
               </button>
 
@@ -186,27 +186,27 @@ const AdminDashboard = () => {
                       </div>
                       <div className="flex gap-2">
                         <button className="p-2 bg-gray-700 rounded-lg hover:bg-primary-600 transition-colors">
-                          <edit size={16} />
+                          <Edit size={16} />
                         </button>
                         <button 
                           onClick={() => handleDeleteClass(cls._id)}
                           className="p-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/40 transition-colors"
                         >
-                          <trash size={16} />
+                          <Trash size={16} />
                         </button>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-gray-400 text-sm">
-                        <users size={16} />
+                        <Users size={16} />
                         {cls.enrolled} students
                       </div>
                       <div className="flex items-center gap-2 text-gray-400 text-sm">
-                        <calendar size={16} />
+                        <Calendar size={16} />
                         {cls.duration}
                       </div>
                       <div className="flex items-center gap-2 text-gray-400 text-sm">
-                        <dollarSign size={16} />
+                        <DollarSign size={16} />
                         {cls.price}
                       </div>
                     </div>
@@ -226,7 +226,7 @@ const AdminDashboard = () => {
                 onClick={() => setShowAddTeacher(true)}
                 className="mb-6 px-6 py-3 bg-primary-600 rounded-xl text-white font-semibold hover:bg-primary-500 transition-all duration-200 flex items-center gap-2"
               >
-                <plus size={20} />
+                <Plus size={20} />
                 Add Teacher
               </button>
 
@@ -242,16 +242,16 @@ const AdminDashboard = () => {
                         onClick={() => handleDeleteTeacher(teacher._id)}
                         className="p-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/40 transition-colors"
                       >
-                        <trash size={16} />
+                        <Trash size={16} />
                       </button>
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-gray-400 text-sm">
-                        <users size={16} />
+                        <Users size={16} />
                         {teacher.location}
                       </div>
                       <div className="flex items-center gap-2 text-gray-400 text-sm">
-                        <mail size={16} />
+                        <Mail size={16} />
                         {teacher.email}
                       </div>
                     </div>
